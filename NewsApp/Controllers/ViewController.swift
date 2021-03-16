@@ -23,5 +23,12 @@ class ViewController: UIViewController {
     @IBAction func sourcesButtonPressed(_ sender: UIButton) {
         sourcesLabel.text = "Retrieving sources..."
         sourcesLabel.isHidden = false
+        communicator?.retrieveSources { [weak self] sources, error in
+            if let error = error {
+                self?.sourcesLabel.text = error.message
+            } else if let sources = sources {
+                self?.sourcesLabel.text = "Found \(sources.sources?.count ?? 0) sources!"
+            }
+        }
     }
 }

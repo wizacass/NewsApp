@@ -11,3 +11,17 @@ struct APIError: Codable {
         case message
     }
 }
+
+extension APIError {
+    static let noConnectionError = APIError(
+        status: "error",
+        code: "noConnection",
+        message: "Please connect to the Internet!"
+    )
+
+    static let invalidRequest = APIError(
+        status: "error",
+        code: "invalidRequest",
+        message: "Invalid request!"
+    )
+}

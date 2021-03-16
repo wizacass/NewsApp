@@ -7,4 +7,8 @@ class NewsCommunicator {
     init(_ apiClient: ApiClientProtocol) {
         self.apiClient = apiClient
     }
+
+    func retrieveSources(onComplete handleResponse: @escaping ApiData<NewsSources?>) {
+        apiClient.get("/sources", handleResponse)
+    }
 }
