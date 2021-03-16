@@ -12,9 +12,10 @@
 		860FFE8826011FD100210473 /* NewsApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FFE8726011FD100210473 /* NewsApiClient.swift */; };
 		860FFE8D2601227100210473 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FFE8C2601227100210473 /* Configuration.swift */; };
 		860FFE93260122D400210473 /* ConfigurationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FFE92260122D400210473 /* ConfigurationKey.swift */; };
+		861E178B26015054006653EC /* SourcesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E178A26015054006653EC /* SourcesTableViewController.swift */; };
+		8678374D26015A9600FD2FE2 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8678374C26015A9600FD2FE2 /* ArticlesTableViewController.swift */; };
 		86DA3C7026010AC2006166E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA3C6F26010AC2006166E4 /* AppDelegate.swift */; };
 		86DA3C7226010AC2006166E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA3C7126010AC2006166E4 /* SceneDelegate.swift */; };
-		86DA3C7426010AC2006166E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA3C7326010AC2006166E4 /* ViewController.swift */; };
 		86DA3C7726010AC2006166E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DA3C7526010AC2006166E4 /* Main.storyboard */; };
 		86DA3C7926010AC6006166E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86DA3C7826010AC6006166E4 /* Assets.xcassets */; };
 		86DA3C7C26010AC6006166E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DA3C7A26010AC6006166E4 /* LaunchScreen.storyboard */; };
@@ -43,10 +44,11 @@
 		860FFE8726011FD100210473 /* NewsApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApiClient.swift; sourceTree = "<group>"; };
 		860FFE8C2601227100210473 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		860FFE92260122D400210473 /* ConfigurationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationKey.swift; sourceTree = "<group>"; };
+		861E178A26015054006653EC /* SourcesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesTableViewController.swift; sourceTree = "<group>"; };
+		8678374C26015A9600FD2FE2 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
 		86DA3C6C26010AC2006166E4 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DA3C6F26010AC2006166E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86DA3C7126010AC2006166E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		86DA3C7326010AC2006166E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		86DA3C7626010AC2006166E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86DA3C7826010AC6006166E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86DA3C7B26010AC6006166E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -188,7 +190,8 @@
 		86DA3CA726010FF8006166E4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				86DA3C7326010AC2006166E4 /* ViewController.swift */,
+				861E178A26015054006653EC /* SourcesTableViewController.swift */,
+				8678374C26015A9600FD2FE2 /* ArticlesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -372,11 +375,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				86DD756A26012A6700F65473 /* NewsCommunicator.swift in Sources */,
-				86DA3C7426010AC2006166E4 /* ViewController.swift in Sources */,
 				86DD75602601290E00F65473 /* NewsSources.swift in Sources */,
 				860FFE8D2601227100210473 /* Configuration.swift in Sources */,
+				861E178B26015054006653EC /* SourcesTableViewController.swift in Sources */,
 				86DD75642601295600F65473 /* APIError.swift in Sources */,
 				86DD7554260126D200F65473 /* NewsSource.swift in Sources */,
+				8678374D26015A9600FD2FE2 /* ArticlesTableViewController.swift in Sources */,
 				860FFE93260122D400210473 /* ConfigurationKey.swift in Sources */,
 				86DA3C7026010AC2006166E4 /* AppDelegate.swift in Sources */,
 				86DD755A2601284600F65473 /* ApiClientProtocol.swift in Sources */,
