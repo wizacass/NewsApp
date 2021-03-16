@@ -3,11 +3,21 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var communicator: NewsCommunicator!
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        initialize()
+
         return true
+    }
+
+    private func initialize() {
+        let apiClient = NewsApiClient()
+
+        communicator = NewsCommunicator(apiClient)
     }
 
     // MARK: UISceneSession Lifecycle
