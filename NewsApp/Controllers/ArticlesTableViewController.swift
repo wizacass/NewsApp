@@ -60,12 +60,9 @@ extension ArticlesTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as? ArticleCellView
+        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as? ArticleCell
 
-        let article = articles[indexPath.row]
-        cell?.titleLabel.text = article.title
-        cell?.descriptionLabel.text = article.description
-        cell?.DateLabel.text = "Published at: \(article.publishedAt.description)"
+        cell?.article = articles[indexPath.row]
 
         return cell!
     }

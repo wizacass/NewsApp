@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,7 @@
 		860FFE8D2601227100210473 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FFE8C2601227100210473 /* Configuration.swift */; };
 		860FFE93260122D400210473 /* ConfigurationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FFE92260122D400210473 /* ConfigurationKey.swift */; };
 		861E178B26015054006653EC /* SourcesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E178A26015054006653EC /* SourcesTableViewController.swift */; };
-		865CF64626016EBE00C8D378 /* ArticleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF64526016EBE00C8D378 /* ArticleCellView.swift */; };
+		865CF64626016EBE00C8D378 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF64526016EBE00C8D378 /* ArticleCell.swift */; };
 		865CF65426028BA100C8D378 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF65326028BA100C8D378 /* Article.swift */; };
 		865CF65826028CA500C8D378 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF65726028CA500C8D378 /* Articles.swift */; };
 		8678374D26015A9600FD2FE2 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8678374C26015A9600FD2FE2 /* ArticlesTableViewController.swift */; };
@@ -48,7 +48,7 @@
 		860FFE8C2601227100210473 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		860FFE92260122D400210473 /* ConfigurationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationKey.swift; sourceTree = "<group>"; };
 		861E178A26015054006653EC /* SourcesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesTableViewController.swift; sourceTree = "<group>"; };
-		865CF64526016EBE00C8D378 /* ArticleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellView.swift; sourceTree = "<group>"; };
+		865CF64526016EBE00C8D378 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		865CF65326028BA100C8D378 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		865CF65726028CA500C8D378 /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 		8678374C26015A9600FD2FE2 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		865CF64426016E8D00C8D378 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				865CF64526016EBE00C8D378 /* ArticleCellView.swift */,
+				865CF64526016EBE00C8D378 /* ArticleCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +235,7 @@
 				86DA3C6926010AC2006166E4 /* Frameworks */,
 				86DA3C6A26010AC2006166E4 /* Resources */,
 				86DA3CA82601126E006166E4 /* Swiftlint */,
+				DCE13006EC691FB5D8F94A25 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -384,6 +385,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DCE13006EC691FB5D8F94A25 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NewsApp/Pods-NewsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NewsApp/Pods-NewsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewsApp/Pods-NewsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -399,7 +417,7 @@
 				861E178B26015054006653EC /* SourcesTableViewController.swift in Sources */,
 				86DD75642601295600F65473 /* APIError.swift in Sources */,
 				86DD7554260126D200F65473 /* NewsSource.swift in Sources */,
-				865CF64626016EBE00C8D378 /* ArticleCellView.swift in Sources */,
+				865CF64626016EBE00C8D378 /* ArticleCell.swift in Sources */,
 				8678374D26015A9600FD2FE2 /* ArticlesTableViewController.swift in Sources */,
 				860FFE93260122D400210473 /* ConfigurationKey.swift in Sources */,
 				86DA3C7026010AC2006166E4 /* AppDelegate.swift in Sources */,
