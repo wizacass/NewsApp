@@ -55,22 +55,36 @@ class ArticlesTableViewController: UITableViewController {
 
 // MARK: - Table view data source
 extension ArticlesTableViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         return articles.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as? ArticleCell
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: ViewIdentifiers.articleCell.rawValue,
+            for: indexPath
+        ) as? ArticleCell
 
         let article = ArticleViewModel(articles[indexPath.row])
         cell?.article = article
-
+        
         return cell!
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         let article = ArticleViewModel(articles[indexPath.row])
-        if let vc = storyboard?.instantiateViewController(identifier: "ArticleVC") as? ArticleViewController {
+        if let vc = storyboard?.instantiateViewController(
+            identifier: ViewIdentifiers.articleVC.rawValue
+        ) as? ArticleViewController {
             vc.article = article
 
             navigationController?.pushViewController(vc, animated: true)

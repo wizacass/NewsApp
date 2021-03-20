@@ -12,12 +12,12 @@ struct ArticleViewModel {
     private let dateFormat = "yyyy-MM-dd"
 
     init(_ article: Article) {
-        self.author = article.author
-        self.title = article.title
-        self.description = article.description.htmlToString
-        self.url = URL(string: article.url)
-        self.imageUrl = URL(string: article.urlToImage)
-        self.publishedAt = article.publishedAt.format(dateFormat)
-        self.content = article.content
+        author = article.author
+        title = article.title
+        description = article.description.htmlToString
+        url = URL(string: article.url)
+        imageUrl = URL(string: article.urlToImage)
+        publishedAt = article.publishedAt.format(dateFormat)
+        content = article.content
     }
 }
