@@ -62,13 +62,14 @@ extension ArticlesTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as? ArticleCell
 
-        cell?.article = articles[indexPath.row]
+        let article = ArticleViewModel(articles[indexPath.row])
+        cell?.article = article
 
         return cell!
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let article = articles[indexPath.row]
+        let article = ArticleViewModel(articles[indexPath.row])
         if let vc = storyboard?.instantiateViewController(identifier: "ArticleVC") as? ArticleViewController {
             vc.article = article
 

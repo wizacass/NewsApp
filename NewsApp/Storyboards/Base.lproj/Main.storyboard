@@ -127,7 +127,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="rKu-Wr-9zD" id="6HG-1h-IAj"/>
                                     <outlet property="descriptionLabel" destination="xUw-v7-QUl" id="RNN-OB-aFh"/>
-                                    <outlet property="thumbnailView" destination="Prx-KT-Iq0" id="oDa-Jf-Nka"/>
+                                    <outlet property="thumbnailView" destination="Prx-KT-Iq0" id="Tyc-pK-TIy"/>
                                     <outlet property="titleLabel" destination="UuU-JO-FxL" id="bU4-d1-8Lm"/>
                                 </connections>
                             </tableViewCell>
