@@ -81,6 +81,7 @@ extension SourcesTableViewController {
         let source = newsSources[indexPath.row]
         if let vc = storyboard?.instantiateViewController(identifier: "ArticlesVC") as? ArticlesTableViewController {
             vc.source = source
+            vc.communicator = communicator
 
             navigationController?.pushViewController(vc, animated: true)
         }

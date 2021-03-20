@@ -2,7 +2,7 @@ import Foundation
 
 class NewsApiClient: ApiClientProtocol {
 
-    private let apiUrl = "https://newsapi.org/v2/"
+    private let apiUrl = "https://newsapi.org/v2"
     private let session = URLSession.shared
 
     private var apiKey: String
@@ -78,6 +78,9 @@ class NewsApiClient: ApiClientProtocol {
 
     private func tryParse<T: Decodable>(_ data: Data?) -> T? {
         guard let data = data else { return nil }
-        return try? JSONDecoder().decode(T.self, from: data)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+
+        return try? decoder.decode(T.self, from: data)
     }
 }
