@@ -15,6 +15,9 @@
 		861E178B26015054006653EC /* SourcesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E178A26015054006653EC /* SourcesTableViewController.swift */; };
 		8650785226063A3F005DE598 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650785126063A3F005DE598 /* StringExtensions.swift */; };
 		8650785A26063C59005DE598 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650785926063C59005DE598 /* ArticleViewController.swift */; };
+		86507860260642C5005DE598 /* HTTPRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650785F260642C5005DE598 /* HTTPRequestMethod.swift */; };
+		86507864260643D9005DE598 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86507863260643D9005DE598 /* JsonParser.swift */; };
+		86507868260643ED005DE598 /* ParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86507867260643ED005DE598 /* ParserProtocol.swift */; };
 		865CF64626016EBE00C8D378 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF64526016EBE00C8D378 /* ArticleCell.swift */; };
 		865CF65426028BA100C8D378 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF65326028BA100C8D378 /* Article.swift */; };
 		865CF65826028CA500C8D378 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF65726028CA500C8D378 /* Articles.swift */; };
@@ -52,6 +55,9 @@
 		861E178A26015054006653EC /* SourcesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesTableViewController.swift; sourceTree = "<group>"; };
 		8650785126063A3F005DE598 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		8650785926063C59005DE598 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		8650785F260642C5005DE598 /* HTTPRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestMethod.swift; sourceTree = "<group>"; };
+		86507863260643D9005DE598 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		86507867260643ED005DE598 /* ParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserProtocol.swift; sourceTree = "<group>"; };
 		865CF64526016EBE00C8D378 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		865CF65326028BA100C8D378 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		865CF65726028CA500C8D378 /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 				860FFE8726011FD100210473 /* NewsApiClient.swift */,
 				86DD75592601284600F65473 /* ApiClientProtocol.swift */,
 				86DD756926012A6700F65473 /* NewsCommunicator.swift */,
+				86507863260643D9005DE598 /* JsonParser.swift */,
+				86507867260643ED005DE598 /* ParserProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -130,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				860FFE92260122D400210473 /* ConfigurationKey.swift */,
+				8650785F260642C5005DE598 /* HTTPRequestMethod.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -430,7 +439,9 @@
 				860FFE8D2601227100210473 /* Configuration.swift in Sources */,
 				861E178B26015054006653EC /* SourcesTableViewController.swift in Sources */,
 				86DD75642601295600F65473 /* APIError.swift in Sources */,
+				86507868260643ED005DE598 /* ParserProtocol.swift in Sources */,
 				86DD7554260126D200F65473 /* NewsSource.swift in Sources */,
+				86507860260642C5005DE598 /* HTTPRequestMethod.swift in Sources */,
 				8650785226063A3F005DE598 /* StringExtensions.swift in Sources */,
 				865CF64626016EBE00C8D378 /* ArticleCell.swift in Sources */,
 				8678374D26015A9600FD2FE2 /* ArticlesTableViewController.swift in Sources */,
@@ -440,6 +451,7 @@
 				86DD755A2601284600F65473 /* ApiClientProtocol.swift in Sources */,
 				860FFE8826011FD100210473 /* NewsApiClient.swift in Sources */,
 				86DA3C7226010AC2006166E4 /* SceneDelegate.swift in Sources */,
+				86507864260643D9005DE598 /* JsonParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

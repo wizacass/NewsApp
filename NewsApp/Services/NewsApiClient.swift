@@ -6,14 +6,11 @@ class NewsApiClient: ApiClientProtocol {
     private let session = URLSession.shared
 
     private var apiKey: String
+    private var parser: ParserProtocol
 
-    init() {
-        guard let key: String = try? Configuration.value(for: .apiKey) else {
-            NSLog("API key is missing from info.plist file!")
-            exit(-1)
-        }
-
-        apiKey = key
+    init(_ apiKey: String, _ parser: ParserProtocol) {
+        self.apiKey = apiKey
+        self.parser = parser
     }
 
     func get<T>(_ endpoint: String, _ onComplete: @escaping ApiData<T?>) where T: Decodable {
@@ -21,8 +18,8 @@ class NewsApiClient: ApiClientProtocol {
         let url = URL(string: "\(apiUrl)\(endpoint)")!
         let request = createGetRequest(url)
 
-        let task = session.dataTask(with: request) { [unowned self] data, response, error in
-
+        session.dataTask(with: request) { [unowned self] data, response, error in
+            
             if error != nil {
                 DispatchQueue.main.async { onComplete(nil, APIError.noConnectionError) }
                 return
@@ -33,12 +30,10 @@ class NewsApiClient: ApiClientProtocol {
                 return
             }
 
-            let (dataObject, apiError): (T?, APIError?) = self.parseResponse(statusCode, data)
+            let (dataObject, apiError): (T?, APIError?) = self.parser.parseResponse(statusCode, data)
 
             DispatchQueue.main.async { onComplete(dataObject, apiError) }
-        }
-
-        task.resume()
+        }.resume()
     }
 
     private func getStatusCode(_ response: URLResponse?) -> Int? {
@@ -52,35 +47,10 @@ class NewsApiClient: ApiClientProtocol {
     private func createGetRequest(_ url: URL) -> URLRequest {
         var request = URLRequest(url: url)
 
-        request.httpMethod = "GET"
+        request.httpMethod = HTTPRequestMethod.get.rawValue
         request.setValue(apiKey, forHTTPHeaderField: "X-Api-Key")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         return request
-    }
-
-    private func parseResponse<T: Decodable>(
-        _ statusCode: Int,
-        _ data: Data?
-    ) -> (T?, APIError?) {
-        var dataObject: T?
-        var apiError: APIError?
-
-        switch statusCode {
-        case 200:
-            dataObject = tryParse(data)
-        default:
-            apiError = tryParse(data)
-        }
-
-        return (dataObject, apiError)
-    }
-
-    private func tryParse<T: Decodable>(_ data: Data?) -> T? {
-        guard let data = data else { return nil }
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-
-        return try? decoder.decode(T.self, from: data)
     }
 }
