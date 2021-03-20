@@ -19,7 +19,7 @@ class NewsApiClient: ApiClientProtocol {
         let request = createGetRequest(url)
 
         session.dataTask(with: request) { [unowned self] data, response, error in
-            
+
             if error != nil {
                 DispatchQueue.main.async { onComplete(nil, APIError.noConnectionError) }
                 return

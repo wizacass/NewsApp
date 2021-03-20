@@ -5,7 +5,7 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
 
     var article: ArticleViewModel?
 
@@ -21,7 +21,7 @@ class ArticleViewController: UIViewController {
         titleLabel.text = article?.title
         imageView.downloadImage(article?.imageUrl)
         dateLabel.text = "Published at: \(article?.publishedAt ?? "")"
-        descriptionLabel.text = article?.description.htmlToString
+        contentLabel.text = article?.content.htmlToString
     }
 
     @IBAction func articleButtonPressed(_ sender: UIButton) {
