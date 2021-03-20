@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -146,6 +147,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M10-qr-7kb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1060.8695652173915" y="168.75"/>
+        </scene>
+        <!--Article View Controller-->
+        <scene sceneID="glO-5X-dI9">
+            <objects>
+                <viewController storyboardIdentifier="ArticleVC" id="EtY-J5-akj" customClass="ArticleViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r8i-8v-dv5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awq-Gm-9rO">
+                                <rect key="frame" x="176" y="44" width="62.5" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="teU-BK-kb2">
+                                <rect key="frame" x="0.0" y="93" width="414" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="teU-BK-kb2" secondAttribute="height" multiplier="16:9" id="MyM-eN-gM3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQv-9s-IYs">
+                                <rect key="frame" x="20" y="334" width="374" height="14.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paG-Rw-fLc">
+                                <rect key="frame" x="20" y="356.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkD-mZ-Tpc">
+                                <rect key="frame" x="148" y="385" width="118" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <state key="normal" title="Read Full Article"/>
+                                <connections>
+                                    <action selector="articleButtonPressed:" destination="EtY-J5-akj" eventType="touchUpInside" id="YtZ-pI-hn8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hz7-nL-qDs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="awq-Gm-9rO" firstAttribute="centerX" secondItem="r8i-8v-dv5" secondAttribute="centerX" id="1eS-qq-1ia"/>
+                            <constraint firstItem="awq-Gm-9rO" firstAttribute="top" secondItem="hz7-nL-qDs" secondAttribute="top" id="1r4-d5-p1C"/>
+                            <constraint firstItem="hQv-9s-IYs" firstAttribute="top" secondItem="teU-BK-kb2" secondAttribute="bottom" constant="8" symbolic="YES" id="ERn-7Y-XG9"/>
+                            <constraint firstItem="paG-Rw-fLc" firstAttribute="top" secondItem="hQv-9s-IYs" secondAttribute="bottom" constant="8" symbolic="YES" id="H6Q-U2-nNE"/>
+                            <constraint firstItem="paG-Rw-fLc" firstAttribute="leading" secondItem="hz7-nL-qDs" secondAttribute="leading" constant="20" id="QCi-F2-hAF"/>
+                            <constraint firstItem="hz7-nL-qDs" firstAttribute="trailing" secondItem="paG-Rw-fLc" secondAttribute="trailing" constant="20" id="Rv7-IN-BnL"/>
+                            <constraint firstItem="teU-BK-kb2" firstAttribute="trailing" secondItem="hz7-nL-qDs" secondAttribute="trailing" id="Sor-hz-fHg"/>
+                            <constraint firstItem="zkD-mZ-Tpc" firstAttribute="top" secondItem="paG-Rw-fLc" secondAttribute="bottom" constant="8" symbolic="YES" id="VXZ-5M-IWR"/>
+                            <constraint firstItem="zkD-mZ-Tpc" firstAttribute="centerX" secondItem="r8i-8v-dv5" secondAttribute="centerX" id="h7h-D1-v6H"/>
+                            <constraint firstItem="hz7-nL-qDs" firstAttribute="trailing" secondItem="hQv-9s-IYs" secondAttribute="trailing" constant="20" id="icG-FT-rn1"/>
+                            <constraint firstItem="hQv-9s-IYs" firstAttribute="leading" secondItem="hz7-nL-qDs" secondAttribute="leading" constant="20" id="kgn-MO-Swq"/>
+                            <constraint firstItem="teU-BK-kb2" firstAttribute="leading" secondItem="hz7-nL-qDs" secondAttribute="leading" id="sXq-nf-U31"/>
+                            <constraint firstItem="teU-BK-kb2" firstAttribute="top" secondItem="awq-Gm-9rO" secondAttribute="bottom" constant="8" symbolic="YES" id="w4v-2A-Hq0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="hQv-9s-IYs" id="Nud-8X-Ytv"/>
+                        <outlet property="descriptionLabel" destination="paG-Rw-fLc" id="nrz-iu-Ai2"/>
+                        <outlet property="imageView" destination="teU-BK-kb2" id="eCC-sa-6Da"/>
+                        <outlet property="titleLabel" destination="awq-Gm-9rO" id="AfO-dP-BD1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8I5-4F-O3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1960.8695652173915" y="168.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="neA-OO-g9T">

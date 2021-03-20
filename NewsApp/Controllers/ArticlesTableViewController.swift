@@ -69,7 +69,10 @@ extension ArticlesTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = articles[indexPath.row]
+        if let vc = storyboard?.instantiateViewController(identifier: "ArticleVC") as? ArticleViewController {
+            vc.article = article
 
-        print("Selected article: \"\(article.title)\"")
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
