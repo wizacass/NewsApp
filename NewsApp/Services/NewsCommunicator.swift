@@ -15,8 +15,8 @@ class NewsCommunicator {
     func retrieveArticles(_ source: String, onComplete handleResponse: @escaping ApiData<Articles?>) {
         var endpoint = "/everything"
         endpoint += "?sources=\(source)"
-        endpoint += "&pageSize=10"
-        endpoint += "&page=1"
+//        endpoint += "&pageSize=10"
+//        endpoint += "&page=1"
 
         apiClient.get(endpoint, handleResponse)
     }

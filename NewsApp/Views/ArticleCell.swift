@@ -13,7 +13,7 @@ class ArticleCell: UITableViewCell {
     var article: Article? {
         didSet {
             titleLabel.text = article?.title
-            descriptionLabel.text = article?.description
+            descriptionLabel.attributedText = article?.description.htmlToAttributedString
             dateLabel.text = "Published at: \(formatDate())"
 
             loadImage()
