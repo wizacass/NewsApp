@@ -1,14 +1,13 @@
 import UIKit
-import SDWebImage
 
 class ArticleViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
 
-    var article: Article?
+    var article: ArticleViewModel?
 
     private let dateFormat = "yyyy-MM-dd"
 
@@ -20,33 +19,13 @@ class ArticleViewController: UIViewController {
 
     private func displayArticle() {
         titleLabel.text = article?.title
-        dateLabel.text = "Published at: \(formatDate())"
-        descriptionLabel.text = article?.description.htmlToString
-
-        loadImage()
-    }
-
-    private func loadImage() {
-        guard let urlString = article?.urlToImage else { return }
-
-        imageView.sd_setImage(
-            with: URL(string: urlString)!,
-            placeholderImage: UIImage(named: "xmark.square")
-        )
-    }
-
-    private func formatDate() -> String {
-        guard let date = article?.publishedAt else { return "" }
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = dateFormat
-
-        return formatter.string(from: date)
+        imageView.downloadImage(article?.imageUrl)
+        dateLabel.text = "Published at: \(article?.publishedAt ?? "")"
+        contentLabel.text = article?.content.htmlToString
     }
 
     @IBAction func articleButtonPressed(_ sender: UIButton) {
-        guard let articleUrl = article?.url else { return }
-        if let url = URL(string: articleUrl) {
+        if let url = article?.url {
             UIApplication.shared.open(url)
         }
     }

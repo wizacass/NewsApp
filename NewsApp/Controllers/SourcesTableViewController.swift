@@ -68,7 +68,10 @@ extension SourcesTableViewController {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sourceCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: ViewIdentifiers.sourceCell.rawValue,
+            for: indexPath
+        )
         let source = newsSources[indexPath.row]
 
         cell.textLabel?.text = source.name
@@ -77,9 +80,14 @@ extension SourcesTableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         let source = newsSources[indexPath.row]
-        if let vc = storyboard?.instantiateViewController(identifier: "ArticlesVC") as? ArticlesTableViewController {
+        if let vc = storyboard?.instantiateViewController(
+            identifier: ViewIdentifiers.articlesVC.rawValue
+        ) as? ArticlesTableViewController {
             vc.source = source
             vc.communicator = communicator
 

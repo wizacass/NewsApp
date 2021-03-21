@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func initialize() {
-        let apiClient = NewsApiClient()
+        guard let apiKey: String = try? Configuration.value(for: .apiKey) else {
+            NSLog("API key is missing from info.plist file!")
+            exit(-1)
+        }
+
+        let parser = JsonParser()
+        let apiClient = NewsApiClient(apiKey, parser)
 
         communicator = NewsCommunicator(apiClient)
     }
