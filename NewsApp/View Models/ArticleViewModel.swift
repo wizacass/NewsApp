@@ -17,7 +17,7 @@ struct ArticleViewModel {
         description = article.description.htmlToString
         url = URL(string: article.url)
         imageUrl = URL(string: article.urlToImage)
-        publishedAt = article.publishedAt.format(dateFormat)
-        content = article.content
+        publishedAt = article.publishedAt?.format(dateFormat) ?? ""
+        content = article.content ?? article.description
     }
 }

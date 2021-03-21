@@ -9,13 +9,20 @@ class ArticlesTableViewController: UITableViewController {
     weak var communicator: NewsCommunicator?
 
     private var articles: [Article] = []
+    private var currentPage = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationBar.title = source?.name
 
-        communicator?.retrieveArticles(source?.id ?? "", onComplete: handleRetrievedArticles)
+        let parameters: [String: Any] = [
+            "sources": source?.id ?? "",
+            "pageSize": 10,
+            "page": currentPage
+        ]
+
+        communicator?.retrieveArticles(parameters, onComplete: handleRetrievedArticles)
     }
 
     private func handleRetrievedArticles(_ articles: Articles?, _ error: APIError?) {
@@ -28,9 +35,9 @@ class ArticlesTableViewController: UITableViewController {
     }
 
     private func loadData(_ articles: Articles?) {
-        guard let retrievedSArticles = articles?.articles else { return }
+        guard let retrievedArticles = articles?.articles else { return }
 
-        self.articles = retrievedSArticles
+        self.articles = retrievedArticles
         tableView.reloadData()
     }
 
@@ -73,7 +80,7 @@ extension ArticlesTableViewController {
 
         let article = ArticleViewModel(articles[indexPath.row])
         cell?.article = article
-        
+
         return cell!
     }
 

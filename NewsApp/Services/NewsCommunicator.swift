@@ -12,11 +12,11 @@ class NewsCommunicator {
         apiClient.get("/sources", handleResponse)
     }
 
-    func retrieveArticles(_ source: String, onComplete handleResponse: @escaping ApiData<Articles?>) {
+    func retrieveArticles(_ parameters: [String: Any], onComplete handleResponse: @escaping ApiData<Articles?>) {
         var endpoint = "/everything"
-        endpoint += "?sources=\(source)"
-//        endpoint += "&pageSize=10"
-//        endpoint += "&page=1"
+
+        let paramsString = parameters.map {"\($0.key)=\($0.value)"}.joined(separator: "&")
+        endpoint += "?\(paramsString)"
 
         apiClient.get(endpoint, handleResponse)
     }
