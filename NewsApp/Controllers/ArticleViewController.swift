@@ -21,7 +21,7 @@ class ArticleViewController: UIViewController {
         titleLabel.text = article?.title
         imageView.downloadImage(article?.imageUrl)
         dateLabel.text = "Published at: \(article?.publishedAt ?? "")"
-        contentLabel.text = article?.content.htmlToString
+        contentLabel.text = article?.description.htmlToString
     }
 
     @IBAction func articleButtonPressed(_ sender: UIButton) {

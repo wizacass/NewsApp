@@ -55,22 +55,14 @@ extension ArticlesTableViewController {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return articles.totalResults
+        return articles.count
     }
 
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        var cell: UITableViewCell!
-
-        if indexPath.row < articles.count {
-            cell = prepareArticleCell(indexPath)
-        } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: ViewIdentifiers.loadingCell.rawValue)
-        }
-
-        return cell
+        return prepareArticleCell(indexPath)
     }
 
     private func prepareArticleCell(_ indexPath: IndexPath) -> ArticleCell {
@@ -81,6 +73,7 @@ extension ArticlesTableViewController {
 
         let article = getArticleViewModel(indexPath.row)
         articleCell?.article = article
+
         return articleCell!
     }
 
@@ -103,5 +96,19 @@ extension ArticlesTableViewController {
 
     private func getArticleViewModel(_ index: Int) -> ArticleViewModel {
         return ArticleViewModel(articles.article(at: index))
+    }
+
+    override func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
+        if shouldUpdate(indexPath.row) {
+            articles.loadNext(onComplete: handleRetrievedArticles)
+        }
+    }
+
+    private func shouldUpdate(_ index: Int) -> Bool {
+        return index + 1 == articles.count && articles.count < articles.totalResults
     }
 }

@@ -7,7 +7,6 @@ struct ArticleViewModel {
     let url: URL?
     let imageUrl: URL?
     let publishedAt: String
-    let content: String
 
     private let dateFormat = "yyyy-MM-dd"
 
@@ -18,6 +17,5 @@ struct ArticleViewModel {
         url = URL(string: article.url)
         imageUrl = URL(string: article.urlToImage)
         publishedAt = article.publishedAt?.format(dateFormat) ?? ""
-        content = article.content ?? article.description
     }
 }
