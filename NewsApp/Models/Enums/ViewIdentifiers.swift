@@ -8,4 +8,5 @@ enum ViewIdentifiers: String {
 
     case articleCell = "articleCell"
     case sourceCell = "sourceCell"
+    case loadingCell = "loadingCell"
 }

@@ -126,6 +126,23 @@
                                     <outlet property="titleLabel" destination="UuU-JO-FxL" id="bU4-d1-8Lm"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadingCell" rowHeight="447" id="5zz-zk-I7e" customClass="ArticleCell" customModule="NewsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="475" width="390" height="447"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5zz-zk-I7e" id="u47-TS-nVR">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="447"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ePK-eE-XkF">
+                                            <rect key="frame" x="185" y="213.66666666666666" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ePK-eE-XkF" firstAttribute="centerY" secondItem="u47-TS-nVR" secondAttribute="centerY" id="Nzv-5E-R2a"/>
+                                        <constraint firstItem="ePK-eE-XkF" firstAttribute="centerX" secondItem="u47-TS-nVR" secondAttribute="centerX" id="pao-6g-7Zp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="LSU-9O-fzh" id="O4e-2V-ZaG"/>
