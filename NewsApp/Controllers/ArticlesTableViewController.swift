@@ -8,36 +8,24 @@ class ArticlesTableViewController: UITableViewController {
 
     weak var communicator: NewsCommunicator?
 
-    private var articles: [Article] = []
-    private var currentPage = 1
+    private var pageSize = 10
+    private var viewModel: ArticlesViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationBar.title = source?.name
 
-        let parameters: [String: Any] = [
-            "sources": source?.id ?? "",
-            "pageSize": 10,
-            "page": currentPage
-        ]
-
-        communicator?.retrieveArticles(parameters, onComplete: handleRetrievedArticles)
+        viewModel = ArticlesViewModel(communicator!, source!, pageSize)
+        viewModel.loadNext(onComplete: handleRetrievedArticles)
     }
 
-    private func handleRetrievedArticles(_ articles: Articles?, _ error: APIError?) {
+    private func handleRetrievedArticles(_ error: APIError?) {
         if let error = error {
             showErrorAlert(error.message)
             return
         }
 
-        loadData(articles)
-    }
-
-    private func loadData(_ articles: Articles?) {
-        guard let retrievedArticles = articles?.articles else { return }
-
-        self.articles = retrievedArticles
         tableView.reloadData()
     }
 
@@ -66,7 +54,7 @@ extension ArticlesTableViewController {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return articles.count
+        return viewModel.count
     }
 
     override func tableView(
@@ -78,7 +66,7 @@ extension ArticlesTableViewController {
             for: indexPath
         ) as? ArticleCell
 
-        let article = ArticleViewModel(articles[indexPath.row])
+        let article = getArticleViewModel(indexPath.row)
         cell?.article = article
 
         return cell!
@@ -88,7 +76,8 @@ extension ArticlesTableViewController {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        let article = ArticleViewModel(articles[indexPath.row])
+        let article = getArticleViewModel(indexPath.row)
+
         if let vc = storyboard?.instantiateViewController(
             identifier: ViewIdentifiers.articleVC.rawValue
         ) as? ArticleViewController {
@@ -96,5 +85,9 @@ extension ArticlesTableViewController {
 
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+
+    private func getArticleViewModel(_ index: Int) -> ArticleViewModel {
+        return ArticleViewModel(viewModel.article(at: index))
     }
 }
