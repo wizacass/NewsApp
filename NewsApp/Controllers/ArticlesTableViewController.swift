@@ -71,8 +71,7 @@ extension ArticlesTableViewController {
             for: indexPath
         ) as? ArticleCell
 
-        let article = getArticleViewModel(indexPath.row)
-        articleCell?.article = article
+        articleCell?.article = getArticleViewModel(indexPath.row)
 
         return articleCell!
     }
@@ -83,12 +82,10 @@ extension ArticlesTableViewController {
     ) {
         if indexPath.row >= articles.count { return }
 
-        let article = getArticleViewModel(indexPath.row)
-
         if let vc = storyboard?.instantiateViewController(
             identifier: ViewIdentifiers.articleVC.rawValue
         ) as? ArticleViewController {
-            vc.article = article
+            vc.article = getArticleViewModel(indexPath.row)
 
             navigationController?.pushViewController(vc, animated: true)
         }
