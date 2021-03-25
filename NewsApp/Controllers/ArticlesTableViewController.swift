@@ -22,30 +22,25 @@ class ArticlesTableViewController: UITableViewController {
 
     private func handleRetrievedArticles(_ error: APIError?) {
         if let error = error {
-            showErrorAlert(error.message)
+            let alert = UIAlertController.fatalAlert(error.message)
+            present(alert, animated: true)
+
             return
+        }
+
+        if articles.count == 0 {
+            let alert = UIAlertController.informationalAlert(
+                "No articles found for this source!",
+                handler: { [weak self] in
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            )
+
+            present(alert, animated: true)
         }
 
         tableView.reloadData()
         navigationBar.title = source?.name
-    }
-
-    func showErrorAlert(_ message: String?) {
-        let alert = UIAlertController(
-            title: "Error!",
-            message: message,
-            preferredStyle: .alert
-        )
-
-        alert.addAction(
-            UIAlertAction(
-                title: "Close",
-                style: .destructive,
-                handler: { _ in exit(-1) }
-            )
-        )
-
-        present(alert, animated: true)
     }
 }
 

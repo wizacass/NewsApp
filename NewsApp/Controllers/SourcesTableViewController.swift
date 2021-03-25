@@ -21,7 +21,9 @@ class SourcesTableViewController: UITableViewController {
 
     private func handleRetrievedSources(_ sources: NewsSources?, _ error: APIError?) {
         if let error = error {
-            showErrorAlert(error.message)
+            let alert = UIAlertController.fatalAlert(error.message)
+            present(alert, animated: true)
+
             return
         }
 
@@ -33,24 +35,6 @@ class SourcesTableViewController: UITableViewController {
 
         newsSources = retrievedSources
         tableView.reloadData()
-    }
-
-    func showErrorAlert(_ message: String?) {
-        let alert = UIAlertController(
-            title: "Error!",
-            message: message,
-            preferredStyle: .alert
-        )
-
-        alert.addAction(
-            UIAlertAction(
-                title: "Close",
-                style: .destructive,
-                handler: { _ in exit(-1) }
-            )
-        )
-
-        present(alert, animated: true)
     }
 }
 
