@@ -7,7 +7,7 @@ extension UIImageView {
 
         self.sd_setImage(
             with: url,
-            placeholderImage: UIImage(named: "xmark.square")
+            placeholderImage: UIImage(systemName: "photo.on.rectangle")
         )
     }
 }
