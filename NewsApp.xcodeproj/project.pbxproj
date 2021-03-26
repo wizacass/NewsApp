@@ -22,6 +22,7 @@
 		865CF65426028BA100C8D378 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF65326028BA100C8D378 /* Article.swift */; };
 		865CF65826028CA500C8D378 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CF65726028CA500C8D378 /* Articles.swift */; };
 		8678374D26015A9600FD2FE2 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8678374C26015A9600FD2FE2 /* ArticlesTableViewController.swift */; };
+		86B2D8FB260CD201000BDF79 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B2D8FA260CD201000BDF79 /* UIAlertControllerExtensions.swift */; };
 		86B2F0322608932200E8E9BE /* CommunicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B2F0312608932200E8E9BE /* CommunicatorTests.swift */; };
 		86B2F039260893D700E8E9BE /* CommunicatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B2F038260893D700E8E9BE /* CommunicatorMock.swift */; };
 		86B2F03D2608955000E8E9BE /* ApiClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B2F03C2608955000E8E9BE /* ApiClientMock.swift */; };
@@ -70,6 +71,7 @@
 		865CF65326028BA100C8D378 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		865CF65726028CA500C8D378 /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 		8678374C26015A9600FD2FE2 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
+		86B2D8FA260CD201000BDF79 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		86B2F0312608932200E8E9BE /* CommunicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicatorTests.swift; sourceTree = "<group>"; };
 		86B2F038260893D700E8E9BE /* CommunicatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicatorMock.swift; sourceTree = "<group>"; };
 		86B2F03C2608955000E8E9BE /* ApiClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientMock.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				8650785126063A3F005DE598 /* StringExtensions.swift */,
 				86FC9B3E26064BD2006149A7 /* ImageViewExtensions.swift */,
 				86FC9B4226064E16006149A7 /* DateExtensions.swift */,
+				86B2D8FA260CD201000BDF79 /* UIAlertControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				86FC9B4326064E16006149A7 /* DateExtensions.swift in Sources */,
 				865CF65426028BA100C8D378 /* Article.swift in Sources */,
 				865CF65826028CA500C8D378 /* Articles.swift in Sources */,
+				86B2D8FB260CD201000BDF79 /* UIAlertControllerExtensions.swift in Sources */,
 				86DD756A26012A6700F65473 /* NewsCommunicator.swift in Sources */,
 				86DD75602601290E00F65473 /* NewsSources.swift in Sources */,
 				86DE858126065C9E003F56AC /* ViewIdentifiers.swift in Sources */,
